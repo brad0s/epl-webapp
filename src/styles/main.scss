@@ -1,0 +1,14 @@
+//abstract
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+// base
+@import './base/base';
+
+// components
+@import './components/header';
+@import './components/standingTable';
+@import './components/goalScorers';
+
+// sections
+@import './sections/content';

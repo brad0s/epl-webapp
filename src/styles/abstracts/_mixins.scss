@@ -1,0 +1,28 @@
+// MEDIA QUERIES
+
+/*
+  576px: mobile
+  768: tablet
+  1200+: desktop
+*/
+
+@mixin repsond($breakpoint) {
+  // mobile
+  @if $breakpoint == mobile {
+    @media (min-width: 576px) {
+      @content;
+    }
+  }
+  // tablet
+  @if $breakpoint == tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  // desktop
+  @if $breakpoint == desktop {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
