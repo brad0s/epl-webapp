@@ -1,0 +1,82 @@
+.Standings {
+  &--table__mobile {
+    display: grid;
+    row-gap: 10px;
+    @include respond('tablet') {
+      display: none;
+    }
+
+    &--headers {
+      span {
+        font-weight: 800;
+      }
+    }
+
+    &--items:nth-last-child(3) {
+      border-top: 2px dashed red;
+      padding-top: 10px;
+    }
+
+    &--items:nth-child(odd) {
+      background-color: $lightGrayBackground;
+      border-radius: 10px;
+    }
+
+    &--items,
+    &--headers {
+      display: grid;
+      grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr);
+      column-gap: 1px;
+      align-items: center;
+      justify-items: center;
+      padding: 5px;
+
+      span {
+        img {
+          width: 35px;
+        }
+      }
+    }
+  }
+
+  &--table {
+    display: none;
+    @include respond('tablet') {
+      display: grid;
+      row-gap: 10px;
+    }
+
+    &--headers {
+      span {
+        font-weight: 800;
+        text-align: center;
+      }
+    }
+
+    &--items:nth-last-child(3) {
+      border-top: 2px dashed red;
+      padding-top: 10px;
+    }
+
+    &--items:nth-child(odd) {
+      background-color: $lightGrayBackground;
+      border-radius: 10px;
+    }
+
+    &--items,
+    &--headers {
+      display: grid;
+      grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr);
+      column-gap: 1px;
+      align-items: center;
+      justify-items: center;
+      padding: 5px;
+
+      span {
+        img {
+          width: 35px;
+        }
+      }
+    }
+  }
+}

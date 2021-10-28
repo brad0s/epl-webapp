@@ -1,0 +1,65 @@
+.Fixtures {
+  &--match {
+    display: grid;
+    grid-template-columns: (1fr 3fr 1fr 3fr);
+    column-gap: 3px;
+    margin: 10px auto;
+    padding: 10px 5px;
+    border: 2px solid $primary;
+    border-radius: 10px;
+    align-items: baseline;
+    // justify-content: center;
+    // align-items: center;
+
+    .dates {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-self: center;
+      .time {
+        font-weight: 600;
+      }
+      .date {
+        font-size: 0.75rem;
+      }
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+
+      > img {
+        height: 35px;
+        width: 35px;
+      }
+    }
+
+    .awayTeam {
+      justify-content: end;
+      text-align: right;
+
+      > img {
+        align-self: end;
+      }
+    }
+
+    .homeTeam {
+      justify-content: start;
+      text-align: left;
+    }
+
+    .scores {
+      display: flex;
+      justify-content: center;
+      &.scheduled {
+        color: gray;
+      }
+      &.final {
+        background-color: lightgray;
+        .score {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

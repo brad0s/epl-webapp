@@ -6,7 +6,7 @@
   1200+: desktop
 */
 
-@mixin repsond($breakpoint) {
+@mixin respond($breakpoint) {
   // mobile
   @if $breakpoint == mobile {
     @media (min-width: 576px) {
