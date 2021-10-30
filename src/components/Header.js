@@ -105,7 +105,7 @@ const Header = () => {
       <div className="wrapper">
         <div>
           <h1>
-            <GiSoccerBall />
+            <GiSoccerBall className="" />
           </h1>
         </div>
         <Nav />
