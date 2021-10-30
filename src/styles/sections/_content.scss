@@ -1,6 +1,10 @@
 #MainContent {
-  margin: 0 5px;
+  margin: 0 10px;
   @include respond('tablet') {
-    margin: 0 15px;
+    margin: 0 20px;
+  }
+  @include respond('desktop') {
+    margin: 0 auto;
+    max-width: 1100px;
   }
 }

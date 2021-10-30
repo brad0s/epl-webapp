@@ -1,14 +1,133 @@
 .Header {
   background-color: $primary;
+  background: $gradient;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
+
+  .wrapper {
+    display: flex;
+    padding: 20px 10px;
+    // padding: 0 10px;
+    align-items: baseline;
+    justify-content: space-between;
+    @include respond('desktop') {
+      // width: 1100px;
+      margin: 0 50px;
+    }
+  }
 
   h1 {
     color: white;
+    margin: 0;
+    margin-right: 30px;
+    text-transform: uppercase;
+    // font-size: 1.5rem;
   }
-  p {
-    color: white;
+
+  .mobile-menu {
+    position: relative;
+
+    .hamburger {
+      justify-self: end;
+      div {
+        .icon {
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .Nav-mobile {
+      display: none;
+      position: absolute;
+      right: -1000%;
+      transition: 350ms;
+      // padding: 10px 20px;
+      height: 100vh;
+      width: 250px;
+
+      &.active {
+        display: flex;
+        z-index: 99;
+        background-color: $primary;
+        right: -10px;
+        transition: 350ms;
+        top: 0;
+        position: fixed;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        padding-top: 35px;
+
+        li {
+          padding: 15px 20px;
+          display: flex;
+          flex-wrap: nowrap;
+          cursor: pointer;
+          position: relative;
+
+          &:not(:first-child):hover {
+            background-color: $purpleGradient;
+            color: $primary;
+            transition: 0.3s linear;
+          }
+
+          .close {
+            position: absolute;
+            right: 10px;
+            top: 0px;
+          }
+
+          .icon {
+            color: white;
+            margin-right: 10px;
+            font-size: 1.25rem;
+          }
+          span {
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .Nav {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+
+      li {
+        margin: 30px 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        padding: 4px 8px;
+        &:hover {
+          border: 2px solid white;
+          border-radius: 10px;
+          font-weight: 500;
+        }
+        .icon {
+          color: white;
+          margin-right: 10px;
+          font-size: 1.25rem;
+        }
+        span {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
   }
 }

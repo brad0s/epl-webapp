@@ -2,10 +2,20 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { getCurrentMatchDay, getFixturesByMatchday } from '../api/ApiManager';
 
-const Fixture = ({ match }) => {
+const Fixture = ({ match, viewport }) => {
   const duration = match.score.duration;
   const { status, utcDate } = match;
   const { winner } = match.score;
+
+  let date;
+  let time;
+  if (viewport < 1200) {
+    date = moment(utcDate).format('M/DD');
+    time = moment(utcDate).format('h:mma');
+  } else {
+    date = moment(utcDate).format('dddd MMM Do');
+    time = moment(utcDate).format('h:mma');
+  }
 
   let score;
   if (duration === 'REGULAR') {
@@ -26,13 +36,11 @@ const Fixture = ({ match }) => {
     matchStatus = 'final';
   }
 
-  // console.log(moment(utcDate).format('ddd MMM Do, YYYY h:mma'));
-
   return (
     <div className="Fixtures--match" key={match.id}>
       <div className="dates">
-        <div className="time">{moment(utcDate).format('h:mma')}</div>
-        <div className="date">{moment(utcDate).format('M/DD')}</div>
+        <div className="time">{time}</div>
+        <div className="date">{date}</div>
       </div>
       <div className="awayTeam team">
         <img
@@ -64,6 +72,7 @@ const Fixture = ({ match }) => {
 const Fixtures = () => {
   const [currentMatchday, setCurrentMatchday] = useState();
   const [fixtures, setFixtures] = useState();
+  const [viewportSize] = useState(window.innerWidth);
 
   useEffect(() => {
     const init = async () => {
@@ -80,8 +89,12 @@ const Fixtures = () => {
     <section id="Fixtures" className="Fixtures">
       <h2>Fixtures</h2>
       {currentMatchday && <h4>{`Matchweek ${currentMatchday}`}</h4>}
-      {fixtures &&
-        fixtures.map((match) => <Fixture match={match} key={match.id} />)}
+      <div className="grid-container">
+        {fixtures &&
+          fixtures.map((match) => (
+            <Fixture match={match} key={match.id} viewport={viewportSize} />
+          ))}
+      </div>
     </section>
   );
 };

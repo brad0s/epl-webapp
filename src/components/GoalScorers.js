@@ -15,12 +15,24 @@ const Player = ({ player, index }) => {
     <div className="GoalScorers--player">
       <span>{`${index + 1}.`}</span>
       <span>{name}</span>
-      <span>{player.team.name}</span>
-      <span>{position}</span>
-      <span>
-        {countryCode && <img src={`https://flagcdn.com/${countryCode}.svg`} />}
+      <span className="team">
+        <img
+          src={`https://crests.football-data.org/${player.team.id}.svg`}
+          alt="Crest logo"
+        />
+        {player.team.name}
       </span>
-      <span>{numberOfGoals}</span>
+      <span className="position">{position}</span>
+      <span className="country">
+        {countryCode && (
+          <img
+            src={`https://flagcdn.com/${countryCode.toLowerCase()}.svg`}
+            alt="nation flag"
+          />
+        )}
+        {nationality}
+      </span>
+      <span className="goals">{numberOfGoals}</span>
     </div>
   );
 };

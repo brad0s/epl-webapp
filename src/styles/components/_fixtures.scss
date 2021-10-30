@@ -1,4 +1,10 @@
 .Fixtures {
+  .grid-container {
+    @include respond('desktop') {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
   &--match {
     display: grid;
     grid-template-columns: (1fr 3fr 1fr 3fr);
@@ -8,14 +14,31 @@
     border: 2px solid $primary;
     border-radius: 10px;
     align-items: baseline;
-    // justify-content: center;
-    // align-items: center;
+    background-color: $primary;
+    color: white;
+    @include respond('desktop') {
+      display: flex;
+      width: 525px;
+      position: relative;
+      padding-top: 55px;
+      padding-bottom: 15px;
+      justify-content: center;
+      align-items: center;
+      column-gap: 30px;
+      min-height: 150px;
+    }
 
     .dates {
       display: flex;
       flex-direction: column;
       align-items: center;
       align-self: center;
+      @include respond('desktop') {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        right: 0;
+      }
       .time {
         font-weight: 600;
       }
@@ -27,10 +50,18 @@
     .team {
       display: flex;
       flex-direction: column;
+      @include respond('desktop') {
+        width: 150px;
+        align-self: flex-start;
+      }
 
       > img {
         height: 35px;
         width: 35px;
+        @include respond('tablet') {
+          height: 45px;
+          width: 45px;
+        }
       }
     }
 
