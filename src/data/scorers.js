@@ -1,4 +1,4 @@
-const SCORERS_DATA = {
+export const SCORERS_DATA = {
   count: 10,
   filters: {
     limit: 10,
@@ -214,5 +214,3 @@ const SCORERS_DATA = {
     },
   ],
 };
-
-export default SCORERS_DATA;

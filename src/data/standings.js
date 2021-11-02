@@ -1,4 +1,4 @@
-const STANDINGS_DATA = {
+export const STANDINGS_DATA = {
   filters: {},
   competition: {
     id: 2021,
@@ -369,5 +369,3 @@ const STANDINGS_DATA = {
     },
   ],
 };
-
-export default STANDINGS_DATA;

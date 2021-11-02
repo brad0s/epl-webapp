@@ -86,9 +86,20 @@
         color: gray;
       }
       &.final {
-        background-color: lightgray;
+        background-color: #f7f5f8;
+        padding: 10px;
+        margin: 0 auto;
+        border-radius: 10px;
+
+        color: #5d0165;
         .score {
-          font-weight: 600;
+          font-size: 1.1rem;
+          font-weight: 800;
+        }
+      }
+      > span {
+        @include respond('tablet') {
+          margin: 0 5px;
         }
       }
     }

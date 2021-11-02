@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SoccerContext from '../context/context';
+import { SCORERS_DATA } from '../data/scorers';
 import { COUNTRIES } from '../data/countryCodes';
 
 const Player = ({ player, index }) => {
-  console.log(player);
   const { numberOfGoals } = player;
   const { name, nationality, position, dateOfBirth } = player.player;
   let countryCode = COUNTRIES[nationality];
@@ -37,14 +38,18 @@ const Player = ({ player, index }) => {
   );
 };
 
-const GoalScorers = ({ data }) => {
-  const { scorers } = data;
-  console.log(scorers);
+const GoalScorers = () => {
+  let { goalScorers } = useContext(SoccerContext);
+  console.log(goalScorers);
+
+  if (goalScorers == null || goalScorers.length === 0) {
+    goalScorers = SCORERS_DATA.scorers;
+  }
 
   return (
     <section id="GoalScorers" className="GoalScorers">
       <h2>Top Goal Scorers</h2>
-      {scorers.map((player, index) => (
+      {goalScorers.map((player, index) => (
         <Player player={player} key={player.player.id} index={index} />
       ))}
     </section>

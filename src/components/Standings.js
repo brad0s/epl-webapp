@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import Popup from './Popup';
+import React, { useContext } from 'react';
+import { SoccerContext } from '../context/context';
+// import { STANDINGS_DATA } from '../data/standings';
 
-const Standings = ({ data }) => {
-  const table = data.standings[0].table;
-  console.log(table);
-
-  const [modal, setModal] = useState(false);
-
-  const togglePopUp = () => {
-    setModal((prevModal) => !prevModal);
-  };
+const Standings = () => {
+  const { standings } = useContext(SoccerContext);
+  // const table = STANDINGS_DATA.standings[0].table;
+  console.log(standings);
 
   return (
     <section id="Standings" className="Standings">
@@ -27,7 +23,8 @@ const Standings = ({ data }) => {
           <span className="gp">Games Played</span>
           <span className="points">Points</span>
         </div>
-        {table.map((item) => (
+
+        {standings.map((item) => (
           <div className="Standings--table--items" key={item.position}>
             <span>
               <img
@@ -36,9 +33,7 @@ const Standings = ({ data }) => {
                 alt="Crest Logo"
               />
             </span>
-            <span className="team" onClick={togglePopUp}>
-              {item.team.name}
-            </span>
+            <span className="team">{item.team.name}</span>
             <span className="won">{item.won}</span>
             <span className="lost">{item.lost}</span>
             <span className="draw">{item.draw}</span>
@@ -50,7 +45,6 @@ const Standings = ({ data }) => {
           </div>
         ))}
       </div>
-      <Popup show={modal} close={togglePopUp} />
     </section>
   );
 };

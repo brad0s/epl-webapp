@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
 import { getCurrentMatchDay, getFixturesByMatchday } from '../api/ApiManager';
+import SoccerContext from '../context/context';
 
 const Fixture = ({ match, viewport }) => {
   const duration = match.score.duration;
@@ -28,9 +29,9 @@ const Fixture = ({ match, viewport }) => {
   if (status === 'SCHEDULED') {
     matchStatus = 'scheduled';
     // todo
-  } else if (status === 'LIVE') {
+  } else if (status === 'LIVE' || status === 'IN_PLAY') {
     // todo
-    matchStatus = 'Live';
+    matchStatus = 'live';
   } else if (status === 'FINISHED') {
     // todo
     matchStatus = 'final';
@@ -70,28 +71,16 @@ const Fixture = ({ match, viewport }) => {
 };
 
 const Fixtures = () => {
-  const [currentMatchday, setCurrentMatchday] = useState();
-  const [fixtures, setFixtures] = useState();
+  const { matchDay, matches } = useContext(SoccerContext);
   const [viewportSize] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const init = async () => {
-      const _matchday = await getCurrentMatchDay();
-      setCurrentMatchday(_matchday);
-      const _fixtures = await getFixturesByMatchday(_matchday);
-      console.log(_fixtures);
-      setFixtures(_fixtures);
-    };
-    init();
-  }, []);
 
   return (
     <section id="Fixtures" className="Fixtures">
       <h2>Fixtures</h2>
-      {currentMatchday && <h4>{`Matchweek ${currentMatchday}`}</h4>}
+      {matchDay && <h4>{`Matchweek ${matchDay}`}</h4>}
       <div className="grid-container">
-        {fixtures &&
-          fixtures.map((match) => (
+        {matches &&
+          matches.map((match) => (
             <Fixture match={match} key={match.id} viewport={viewportSize} />
           ))}
       </div>
