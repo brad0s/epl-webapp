@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import moment from 'moment';
-import { getCurrentMatchDay, getFixturesByMatchday } from '../api/ApiManager';
 import SoccerContext from '../context/context';
 
 const Fixture = ({ match, viewport }) => {
   const duration = match.score.duration;
   const { status, utcDate } = match;
-  const { winner } = match.score;
+  // const { winner } = match.score;
 
   let date;
   let time;

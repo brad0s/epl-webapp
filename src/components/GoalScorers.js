@@ -5,7 +5,7 @@ import { COUNTRIES } from '../data/countryCodes';
 
 const Player = ({ player, index }) => {
   const { numberOfGoals } = player;
-  const { name, nationality, position, dateOfBirth } = player.player;
+  const { name, nationality, position } = player.player;
   let countryCode = COUNTRIES[nationality];
 
   if (nationality === 'England') {

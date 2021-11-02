@@ -3,7 +3,6 @@ import * as FaIcons from 'react-icons/fa';
 import { BsCalendar } from 'react-icons/bs';
 import { BiChart } from 'react-icons/bi';
 import { GiSoccerKick } from 'react-icons/gi';
-import { MdSportsSoccer } from 'react-icons/md';
 import { GiSoccerBall } from 'react-icons/gi';
 import Hero from './Hero';
 
@@ -22,7 +21,7 @@ const useWindowSize = () => {
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
 
   let hamburgerMenu;
   if (width < 1200) {
