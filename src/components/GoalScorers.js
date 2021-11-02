@@ -14,6 +14,7 @@ const Player = ({ player, index }) => {
 
   return (
     <div className="GoalScorers--player">
+      {/* <div className="player-rectangle"></div> */}
       <span>{`${index + 1}.`}</span>
       <span>{name}</span>
       <span className="team">

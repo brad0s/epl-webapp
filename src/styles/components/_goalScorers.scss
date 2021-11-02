@@ -1,10 +1,13 @@
 // top goal scorers mixin
 @mixin top-goal-scorer($color) {
-  border: 1px solid $color;
-  border-radius: 10px;
-  padding: 5px;
+  content: '';
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 5px;
   background-color: $color;
-  color: white;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .GoalScorers {
@@ -16,17 +19,35 @@
     justify-items: start;
     margin-bottom: 10px;
     padding-left: 5px;
+    border-radius: 10px;
+    position: relative;
     @include respond('tablet') {
       grid-template-columns: (0fr 2fr 2fr 1fr 1fr 1fr);
+      padding: 5px 8px;
+      min-height: 56px;
     }
 
-    &:nth-of-type(1) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid $lightGrayBackground;
+    }
+
+    &:hover {
+      background-color: $purpleBackground;
+    }
+
+    &:nth-of-type(1)::after {
       @include top-goal-scorer($gold);
     }
-    &:nth-of-type(2) {
+    &:nth-of-type(2)::after {
       @include top-goal-scorer($silver);
     }
-    &:nth-of-type(3) {
+    &:nth-of-type(3)::after {
       @include top-goal-scorer($bronze);
     }
 

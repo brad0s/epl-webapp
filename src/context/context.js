@@ -26,7 +26,6 @@ export const SoccerContextProvider = ({ children }) => {
       const _standings = await getStandings();
       setStandings(_standings);
       const _scorers = await getGoalScorers();
-      console.log(_scorers);
       setGoalScorers(_scorers);
       const _matchday = await getCurrentMatchDay();
       setMatchDay(_matchday);
