@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { SoccerContext } from '../context/context';
-// import { STANDINGS_DATA } from '../data/standings';
+import { STANDINGS_DATA } from '../data/standings';
 
 const Standings = () => {
-  const { standings } = useContext(SoccerContext);
-  // const table = STANDINGS_DATA.standings[0].table;
+  let { standings } = useContext(SoccerContext);
+
+  if (standings == null || standings.length === 0) {
+    standings = STANDINGS_DATA.standings[0].table;
+  }
+
   console.log(standings);
 
   return (

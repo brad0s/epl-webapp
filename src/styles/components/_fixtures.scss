@@ -1,8 +1,35 @@
 .Fixtures {
+  background-image: $gradient;
+  max-width: none;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  margin: 0;
+  margin-bottom: 5rem;
+
+  h2,
+  h4 {
+    color: white;
+    margin-left: 10px;
+    @include respond('tablet') {
+      margin-left: 20px;
+    }
+    @include respond('desktop') {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .grid-container {
+    margin: 0 10px;
+    @include respond('tablet') {
+      margin: 0 20px;
+    }
     @include respond('desktop') {
       display: flex;
       flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
     }
   }
   &--match {
@@ -11,11 +38,19 @@
     column-gap: 3px;
     margin: 10px auto;
     padding: 10px 5px;
-    border: 2px solid $primary;
+    // border: 2px solid $primary;
     border-radius: 10px;
     align-items: baseline;
-    background-color: $primary;
+    background-color: $purpleBackground;
     color: white;
+    background: rgba(255, 255, 255, 0.25);
+    // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15),
+      -6px -6px 16px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     @include respond('desktop') {
       display: flex;
       width: 525px;

@@ -2,6 +2,7 @@ import GoalScorers from './components/GoalScorers';
 import Header from './components/Header';
 import Standings from './components/Standings';
 import Fixtures from './components/Fixtures';
+import Footer from './components/Footer';
 import '../src/styles/main.scss';
 
 import { SoccerContextProvider } from './context/context';
@@ -13,9 +14,10 @@ function App() {
         <Header />
         <main id="MainContent">
           <Standings />
-          <GoalScorers />
           <Fixtures />
+          <GoalScorers />
         </main>
+        <Footer />
       </div>
     </SoccerContextProvider>
   );

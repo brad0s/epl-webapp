@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import SoccerContext from '../context/context';
+import { FIXTURES_DATA } from '../data/fixtures';
 
 const Fixture = ({ match, viewport }) => {
   const duration = match.score.duration;
@@ -70,8 +71,12 @@ const Fixture = ({ match, viewport }) => {
 };
 
 const Fixtures = () => {
-  const { matchDay, matches } = useContext(SoccerContext);
+  let { matchDay, matches } = useContext(SoccerContext);
   const [viewportSize] = useState(window.innerWidth);
+
+  if (matches == null || matches.length === 0) {
+    matches = FIXTURES_DATA;
+  }
 
   return (
     <section id="Fixtures" className="Fixtures">
