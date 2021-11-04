@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://api.football-data.org/v2',
-  headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_API_KEY },
+  baseURL: 'https://api.football-data.org/v2',
+  headers: {
+    'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_API_KEY,
+  },
 });
 
 export const getStandings = async () => {
