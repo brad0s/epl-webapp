@@ -41,7 +41,6 @@ const Player = ({ player, index }) => {
 
 const GoalScorers = () => {
   let { goalScorers } = useContext(SoccerContext);
-  console.log(goalScorers);
 
   if (goalScorers == null || goalScorers.length === 0) {
     goalScorers = SCORERS_DATA.scorers;

@@ -20,7 +20,6 @@ export const getStandings = async () => {
 export const getGoalScorers = async () => {
   try {
     const response = await instance.get('/competitions/PL/scorers');
-    console.log(response.scorers);
     return response.scorers;
   } catch (e) {
     console.error(e);

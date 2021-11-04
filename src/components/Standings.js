@@ -9,8 +9,6 @@ const Standings = () => {
     standings = STANDINGS_DATA.standings[0].table;
   }
 
-  console.log(standings);
-
   return (
     <section id="Standings" className="Standings">
       <h2>Standings</h2>
