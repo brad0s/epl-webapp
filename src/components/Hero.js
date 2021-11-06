@@ -9,15 +9,20 @@ const Hero = () => {
 
   return (
     <div className="Hero">
-      <div className="wrapper">
-        <div>
-          <div>Soccer stats, standings and more!</div>
-          <a className="cta" onClick={() => scrollTo('#Standings')}>
+      <div className="Hero__content">
+        <div className="Hero__content__header">
+          <h1 className="Hero__content__header__title">
+            Soccer stats, standings and more!
+          </h1>
+          <button
+            className="Hero__content__header__cta"
+            onClick={() => scrollTo('#Standings')}
+          >
             Check it out!
-          </a>
+          </button>
         </div>
 
-        <img src={salah} alt="Salah" />
+        <img className="Hero__content__image" src={salah} alt="Salah" />
       </div>
     </div>
   );

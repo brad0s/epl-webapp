@@ -10,8 +10,11 @@
   border-radius: 10px;
 }
 
+@mixin logo {
+}
+
 .GoalScorers {
-  &--player {
+  .Player {
     display: grid;
     grid-template-columns: (0fr 2fr 2fr 1fr);
     column-gap: 1px;
@@ -53,11 +56,14 @@
       @include top-goal-scorer($bronze);
     }
 
-    span {
-      &:first-child {
-        width: 25px;
-      }
-      > img {
+    &__rank {
+      width: 25px;
+    }
+
+    &__team {
+      display: flex;
+      align-items: center;
+      &__logo {
         display: none;
         @include respond('tablet') {
           display: inherit;
@@ -65,29 +71,33 @@
           margin-right: 5px;
         }
       }
-      &.team,
-      &.country {
+    }
+
+    &__country {
+      align-items: center;
+      display: none;
+      @include respond('tablet') {
         display: flex;
-        align-items: center;
       }
-
-      &.country {
-        display: none;
-        @include respond('tablet') {
-          display: flex;
-        }
-      }
-
-      &.position {
+      &__logo {
         display: none;
         @include respond('tablet') {
           display: inherit;
+          width: 35px;
+          margin-right: 5px;
         }
       }
+    }
 
-      &.goals {
-        justify-self: center;
+    &__position {
+      display: none;
+      @include respond('tablet') {
+        display: inherit;
       }
+    }
+
+    &__goals {
+      justify-self: center;
     }
   }
 }

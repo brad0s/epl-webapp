@@ -6,8 +6,8 @@
   margin: 0;
   margin-bottom: 5rem;
 
-  h2,
-  h4 {
+  &__title,
+  &__subtitle {
     color: white;
     margin-left: 10px;
     @include respond('tablet') {
@@ -20,7 +20,7 @@
     }
   }
 
-  .grid-container {
+  &__grid {
     margin: 0 10px;
     @include respond('tablet') {
       margin: 0 20px;
@@ -32,7 +32,7 @@
       margin: 0 auto;
     }
   }
-  &--match {
+  .Fixture {
     display: grid;
     grid-template-columns: (1fr 3fr 1fr 3fr);
     column-gap: 3px;
@@ -63,7 +63,7 @@
       min-height: 150px;
     }
 
-    .dates {
+    &__dates {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -74,15 +74,15 @@
         left: 0;
         right: 0;
       }
-      .time {
+      &__time {
         font-weight: 600;
       }
-      .date {
+      &__date {
         font-size: 0.75rem;
       }
     }
 
-    .team {
+    &__team {
       display: flex;
       flex-direction: column;
       @include respond('desktop') {
@@ -90,7 +90,7 @@
         align-self: flex-start;
       }
 
-      > img {
+      &__logo {
         height: 35px;
         width: 35px;
         @include respond('tablet') {
@@ -100,39 +100,38 @@
       }
     }
 
-    .awayTeam {
+    &--awayTeam {
       justify-content: end;
       text-align: right;
 
-      > img {
+      &__logo {
         align-self: end;
       }
     }
 
-    .homeTeam {
+    &--homeTeam {
       justify-content: start;
       text-align: left;
     }
 
-    .scores {
+    &__scores {
       display: flex;
       justify-content: center;
-      &.scheduled {
-        color: gray;
+      &--scheduled {
+        color: white;
       }
-      &.final {
+      &--final {
         background-color: #f7f5f8;
         padding: 10px;
         margin: 0 auto;
         border-radius: 10px;
-
         color: #5d0165;
-        .score {
+        &__score {
           font-size: 1.1rem;
           font-weight: 800;
         }
       }
-      > span {
+      &__separator {
         @include respond('tablet') {
           margin: 0 5px;
         }

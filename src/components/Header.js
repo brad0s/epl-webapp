@@ -42,54 +42,93 @@ const Nav = () => {
   return (
     <>
       {hamburgerMenu ? (
-        <div className="mobile-menu">
-          <div className="hamburger">
-            <div>
+        <div className="Nav-mobile">
+          <div className="Nav-mobile__hamburger">
+            <div className="Nav-mobile__hamburger__icon">
               {sidebar ? (
-                <FaIcons.FaTimes className="icon" onClick={showSidebar} />
+                <FaIcons.FaTimes
+                  className="Nav-mobile__hamburger__icon__svg"
+                  onClick={showSidebar}
+                />
               ) : (
-                <FaIcons.FaBars className="icon" onClick={showSidebar} />
+                <FaIcons.FaBars
+                  className="Nav-mobile__hamburger__icon__svg"
+                  onClick={showSidebar}
+                />
               )}
             </div>
           </div>
-          <nav className={sidebar ? 'Nav-mobile active' : 'Nav-mobile'}>
-            <ul onClick={showSidebar}>
-              <li>
-                <span className="close">
-                  <FaIcons.FaTimes className="icon" onClick={showSidebar} />
+          <nav
+            className={sidebar ? 'Nav-mobile__nav--active' : 'Nav-mobile__nav'}
+          >
+            <ul className="Nav-mobile__nav__list" onClick={showSidebar}>
+              <li className="Nav-mobile__nav__list__item">
+                <span className="Nav-mobile__nav__list__item__close">
+                  <FaIcons.FaTimes
+                    className="Nav-mobile__nav__list__item__icon"
+                    onClick={showSidebar}
+                  />
                 </span>
               </li>
-              <li onClick={() => scrollTo('#Standings')}>
-                <BiChart className="icon" />
-                <span>Standings</span>
+              <li
+                className="Nav-mobile__nav__list__item"
+                onClick={() => scrollTo('#Standings')}
+              >
+                <BiChart className="Nav-mobile__nav__list__item__icon" />
+                <span className="Nav-mobile__nav__list__item__name">
+                  Standings
+                </span>
               </li>
-              <li onClick={() => scrollTo('#GoalScorers')}>
-                <GiSoccerKick className="icon" />
-                <span>Top Goal Scorers</span>
+              <li
+                className="Nav-mobile__nav__list__item"
+                onClick={() => scrollTo('#GoalScorers')}
+              >
+                <GiSoccerKick className="Nav-mobile__nav__list__item__icon" />
+                <span className="Nav-mobile__nav__list__item__name">
+                  Top Goal Scorers
+                </span>
               </li>
-              <li onClick={() => scrollTo('#Fixtures')}>
-                <BsCalendar className="icon" />
-                <span>Matches</span>
+              <li
+                className="Nav-mobile__nav__list__item"
+                onClick={() => scrollTo('#Fixtures')}
+              >
+                <BsCalendar className="Nav-mobile__nav__list__item__icon" />
+                <span className="Nav-mobile__nav__list__item__name">
+                  Matches
+                </span>
               </li>
             </ul>
           </nav>
         </div>
       ) : (
         <nav className="Nav">
-          <ul onClick={showSidebar}>
-            <li>
-              <BiChart className="icon" />
-              <span onClick={() => scrollTo('#Standings')}>Standings</span>
+          <ul className="Nav__list" onClick={showSidebar}>
+            <li className="Nav__list__item">
+              <BiChart className="Nav__list__item__icon" />
+              <span
+                className="Nav__list__item__name"
+                onClick={() => scrollTo('#Standings')}
+              >
+                Standings
+              </span>
             </li>
-            <li>
-              <GiSoccerKick className="icon" />
-              <span onClick={() => scrollTo('#GoalScorers')}>
+            <li className="Nav__list__item">
+              <GiSoccerKick className="Nav__list__item__icon" />
+              <span
+                className="Nav__list__item__name"
+                onClick={() => scrollTo('#GoalScorers')}
+              >
                 Top Goal Scorers
               </span>
             </li>
-            <li>
-              <BsCalendar className="icon" />
-              <span onClick={() => scrollTo('#Fixtures')}>Matches</span>
+            <li className="Nav__list__item">
+              <BsCalendar className="Nav__list__item__icon" />
+              <span
+                className="Nav__list__item__name"
+                onClick={() => scrollTo('#Fixtures')}
+              >
+                Matches
+              </span>
             </li>
           </ul>
         </nav>
@@ -101,12 +140,10 @@ const Nav = () => {
 const Header = () => {
   return (
     <header className="Header">
-      <div className="wrapper">
-        <div>
-          <h1>
-            <GiSoccerBall className="" />
-          </h1>
-        </div>
+      <div className="Header__content">
+        <span className="Header__content__logo">
+          <GiSoccerBall className="" />
+        </span>
         <Nav />
       </div>
       <Hero />

@@ -1,59 +1,23 @@
+@mixin table-details {
+  grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr);
+  display: grid;
+  position: relative;
+  border-radius: 10px;
+  column-gap: 1px;
+  align-items: center;
+  justify-items: center;
+  padding: 5px;
+}
+
 .Standings {
-  &--table {
+  &__table {
     display: grid;
     row-gap: 10px;
 
-    &--headers {
-      span {
-        font-weight: 800;
-        text-align: center;
-      }
-    }
-
-    &--items:hover {
-      background-color: $purpleBackground;
-    }
-
-    &--items:nth-last-child(3)::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 5px;
-      bottom: 0;
-      left: 5px;
-      border-top: 2px dashed $danger;
-      padding-top: 10px;
-    }
-
-    &--items:nth-child(odd) {
-      background-color: $lightGrayBackground;
-
-      &:hover {
-        background-color: $purpleBackground;
-      }
-    }
-
-    &--items,
-    &--headers {
-      grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr);
-      display: grid;
-      position: relative;
-      border-radius: 10px;
-      column-gap: 1px;
-      align-items: center;
-      justify-items: center;
-      padding: 5px;
+    &__headers {
+      @include table-details();
       @include respond('tablet') {
         grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr);
-      }
-
-      span {
-        img {
-          width: 25px;
-          @include respond('tablet') {
-            width: 45px;
-          }
-        }
       }
       .gf,
       .ga,
@@ -64,11 +28,65 @@
           display: inherit;
         }
       }
-    }
-    &--items {
       .team {
         justify-self: flex-start;
         padding-left: 10px;
+      }
+      &__items {
+        font-weight: 800;
+        text-align: center;
+      }
+    }
+
+    &__items {
+      @include table-details();
+      @include respond('tablet') {
+        grid-template-columns: (1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr);
+      }
+      &:hover {
+        background-color: $purpleBackground;
+      }
+
+      &:nth-last-child(3)::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 5px;
+        bottom: 0;
+        left: 5px;
+        border-top: 2px dashed $danger;
+        padding-top: 10px;
+      }
+
+      &:nth-child(odd) {
+        background-color: $lightGrayBackground;
+
+        &:hover {
+          background-color: $purpleBackground;
+        }
+      }
+
+      .gf,
+      .ga,
+      .gd,
+      .gp {
+        display: none;
+        @include respond('tablet') {
+          display: inherit;
+        }
+      }
+      .team {
+        justify-self: flex-start;
+        padding-left: 10px;
+      }
+
+      &__item {
+        &__image {
+          width: 25px;
+          @include respond('tablet') {
+            width: 45px;
+          }
+        }
       }
     }
   }
