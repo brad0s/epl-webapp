@@ -1,8 +1,14 @@
 # epl-webapp
 
-In order to use the app you will need an api key from (https://www.football-data.org/)[https://www.football-data.org/]
+![Heroku](https://heroku-badge.herokuapp.com/?app=soccer-stats-lander)
+
+<img src="https://github.com/brad0s/epl-webapp/blob/develop/src/assets/images/soccer.png?raw=true" width="500px" heght="auto">
+
+In order to use the app you will need an api key from [https://www.football-data.org/](https://www.football-data.org/)
 
 Api key is stored in .env file
+
+Live: [https://soccer-stats-lander.herokuapp.com](https://soccer-stats-lander.herokuapp.com)
 
 # Getting Started with Create React App
 
