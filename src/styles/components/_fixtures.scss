@@ -6,8 +6,8 @@
   margin: 0;
   margin-bottom: 5rem;
 
-  h2,
-  h4 {
+  &__title,
+  &__subtitle {
     color: white;
     margin-left: 10px;
     @include respond('tablet') {
@@ -20,24 +20,29 @@
     }
   }
 
-  .grid-container {
+  &__grid {
     margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    // margin: 0 auto;
+    gap: 10px;
     @include respond('tablet') {
       margin: 0 20px;
     }
     @include respond('desktop') {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1100px;
+      // display: flex;
+      // flex-wrap: wrap;
+      // max-width: 1100px;
       margin: 0 auto;
     }
   }
-  &--match {
+  .Fixture {
     display: grid;
     grid-template-columns: (1fr 3fr 1fr 3fr);
     column-gap: 3px;
     margin: 10px auto;
-    padding: 10px 5px;
+    padding: 10px 10px;
     // border: 2px solid $primary;
     border-radius: 10px;
     align-items: baseline;
@@ -45,44 +50,56 @@
     color: white;
     background: rgba(255, 255, 255, 0.25);
     // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15),
-      -6px -6px 16px rgba(255, 255, 255, 0.15);
+    box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15), -6px -6px 16px rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    @include respond('desktop') {
-      display: flex;
-      width: 525px;
-      position: relative;
-      padding-top: 55px;
-      padding-bottom: 15px;
-      justify-content: center;
-      align-items: center;
-      column-gap: 30px;
-      min-height: 150px;
+    display: flex;
+    // width: 525px;
+    // flex: 0 1 calc(50% - 5px);
+    flex: 1 1 100%;
+    position: relative;
+    padding-top: 55px;
+    padding-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    min-height: 150px;
+
+    @include respond('tablet') {
+      flex: 0 1 calc(50% - 5px);
     }
 
-    .dates {
+    &__dates {
       display: flex;
       flex-direction: column;
       align-items: center;
       align-self: center;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      right: 0;
       @include respond('desktop') {
         position: absolute;
         top: 5px;
         left: 0;
         right: 0;
       }
-      .time {
+      &__time {
         font-weight: 600;
       }
-      .date {
+      &__date {
         font-size: 0.75rem;
       }
     }
 
-    .team {
+    &__team,
+    &__scores {
+      flex: 0 1 33%;
+    }
+
+    &__team {
       display: flex;
       flex-direction: column;
       @include respond('desktop') {
@@ -90,7 +107,7 @@
         align-self: flex-start;
       }
 
-      > img {
+      &__logo {
         height: 35px;
         width: 35px;
         @include respond('tablet') {
@@ -98,41 +115,47 @@
           width: 45px;
         }
       }
+
+      & > div {
+        overflow-wrap: anywhere;
+      }
     }
 
-    .awayTeam {
+    &--awayTeam {
       justify-content: end;
       text-align: right;
 
-      > img {
+      &__logo {
         align-self: end;
       }
     }
 
-    .homeTeam {
+    &--homeTeam {
       justify-content: start;
       text-align: left;
     }
 
-    .scores {
+    &__scores {
       display: flex;
       justify-content: center;
-      &.scheduled {
-        color: gray;
+      align-self: center;
+      max-width: 70px;
+
+      &--scheduled {
+        color: white;
       }
-      &.final {
+      &--final {
         background-color: #f7f5f8;
         padding: 10px;
         margin: 0 auto;
         border-radius: 10px;
-
         color: #5d0165;
-        .score {
+        &__score {
           font-size: 1.1rem;
           font-weight: 800;
         }
       }
-      > span {
+      &__separator {
         @include respond('tablet') {
           margin: 0 5px;
         }

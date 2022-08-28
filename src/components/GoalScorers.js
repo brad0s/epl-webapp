@@ -13,28 +13,30 @@ const Player = ({ player, index }) => {
   }
 
   return (
-    <div className="GoalScorers--player">
+    <div className="Player">
       {/* <div className="player-rectangle"></div> */}
-      <span>{`${index + 1}.`}</span>
-      <span>{name}</span>
-      <span className="team">
+      <span className="Player__rank">{`${index + 1}.`}</span>
+      <span className="Player__name">{name}</span>
+      <span className="Player__team">
         <img
           src={`https://crests.football-data.org/${player.team.id}.svg`}
-          alt="Crest logo"
+          alt={`${player.team.name} logo`}
+          className="Player__team__logo"
         />
         {player.team.name}
       </span>
-      <span className="position">{position}</span>
-      <span className="country">
+      <span className="Player__position">{position}</span>
+      <span className="Player__country">
         {countryCode && (
           <img
             src={`https://flagcdn.com/${countryCode.toLowerCase()}.svg`}
-            alt="nation flag"
+            alt={`${nationality} flag`}
+            className="Player__country__logo"
           />
         )}
         {nationality}
       </span>
-      <span className="goals">{numberOfGoals}</span>
+      <span className="Player__goals">{numberOfGoals}</span>
     </div>
   );
 };
@@ -48,7 +50,7 @@ const GoalScorers = () => {
 
   return (
     <section id="GoalScorers" className="GoalScorers">
-      <h2>Top Goal Scorers</h2>
+      <h2 className="GoalScorers__title">Top Goal Scorers</h2>
       {goalScorers.map((player, index) => (
         <Player player={player} key={player.player.id} index={index} />
       ))}

@@ -3,7 +3,9 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="Footer">
-      <div>© {new Date().getFullYear()} Braden Wright</div>
+      <div className="Footer__cp">
+        © {new Date().getFullYear()} Braden Wright
+      </div>
     </footer>
   );
 };
