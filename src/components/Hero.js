@@ -22,7 +22,11 @@ const Hero = () => {
           </button>
         </div>
 
-        <img className="Hero__content__image" src={salah} alt="Salah" />
+        <img
+          className="Hero__content__image"
+          src={salah}
+          alt="Soccer palyer celebrating goal."
+        />
       </div>
     </div>
   );

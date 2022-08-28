@@ -35,11 +35,7 @@ export const SoccerContextProvider = ({ children }) => {
     init();
   }, []);
 
-  return (
-    <SoccerContext.Provider value={contextValue}>
-      {children}
-    </SoccerContext.Provider>
-  );
+  return <SoccerContext.Provider value={contextValue}>{children}</SoccerContext.Provider>;
 };
 
 export default SoccerContext;

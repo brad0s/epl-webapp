@@ -49,6 +49,10 @@ const Nav = () => {
                 <FaIcons.FaTimes
                   className="Nav-mobile__hamburger__icon__svg"
                   onClick={showSidebar}
+                  role="button"
+                  aria-expanded='false'
+                  aria-haspopup='menu'
+
                 />
               ) : (
                 <FaIcons.FaBars
@@ -67,6 +71,8 @@ const Nav = () => {
                   <FaIcons.FaTimes
                     className="Nav-mobile__nav__list__item__icon"
                     onClick={showSidebar}
+                    role="button"
+
                   />
                 </span>
               </li>

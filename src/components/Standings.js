@@ -40,7 +40,7 @@ const Standings = () => {
               <img
                 className="Standings__table__items__item__image crest"
                 src={item.team.crestUrl}
-                alt="Crest Logo"
+                alt={`${item.team.name} team logo`}
               />
             </span>
             <span className="Standings__table__items__item team">

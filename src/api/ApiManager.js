@@ -20,7 +20,7 @@ export const getStandings = async () => {
 export const getGoalScorers = async () => {
   try {
     const response = await instance.get('/competitions/PL/scorers');
-    return response.scorers;
+    return response.data.scorers;
   } catch (e) {
     console.error(e);
     return null;
@@ -39,9 +39,7 @@ export const getCurrentMatchDay = async () => {
 
 export const getFixturesByMatchday = async (matchday) => {
   try {
-    const response = await instance.get(
-      `/competitions/PL/matches?matchday=${matchday}`
-    );
+    const response = await instance.get(`/competitions/PL/matches?matchday=${matchday}`);
     return response.data.matches;
   } catch (e) {
     console.error(e);

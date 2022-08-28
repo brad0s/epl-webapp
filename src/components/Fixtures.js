@@ -38,33 +38,33 @@ const Fixture = ({ match, viewport }) => {
   }
 
   return (
-    <div className="Fixture" key={match.id}>
-      <div className="Fixture__dates">
-        <div className="Fixture__dates__time">{time}</div>
-        <div className="Fixture__dates__date">{date}</div>
+    <div className='Fixture' key={match.id}>
+      <div className='Fixture__dates'>
+        <div className='Fixture__dates__time'>{time}</div>
+        <div className='Fixture__dates__date'>{date}</div>
       </div>
-      <div className="Fixture__team Fixture--awayTeam">
+      <div className='Fixture__team Fixture--awayTeam'>
         <img
           src={`https://crests.football-data.org/${match.awayTeam.id}.svg`}
-          alt="Crest Logo"
-          className="Fixture__team__logo Fixture--awayTeam__logo"
+          alt={`${match.awayTeam.name} team logo`}
+          className='Fixture__team__logo Fixture--awayTeam__logo'
         />
         <div>{match.awayTeam.name}</div>
       </div>
       <div className={`Fixture__scores Fixture__scores--${matchStatus}`}>
-        <div className="Fixtures__scores__score">
+        <div className='Fixtures__scores__score'>
           {score.awayTeam === null ? `-` : score.awayTeam}
         </div>
-        <span className="Fixture__scores__separator">:</span>
-        <div className="Fixture__scores__score">
+        <span className='Fixture__scores__separator'>:</span>
+        <div className='Fixture__scores__score'>
           {score.homeTeam === null ? `-` : score.homeTeam}
         </div>
       </div>
-      <div className="Fixture__team Fixture--homeTeam">
+      <div className='Fixture__team Fixture--homeTeam'>
         <img
           src={`https://crests.football-data.org/${match.homeTeam.id}.svg`}
-          alt="Crest Logo"
-          className="Fixture__team__logo"
+          alt={`${match.homeTeam.name} team logo`}
+          className='Fixture__team__logo'
         />
         <div>{match.homeTeam.name}</div>
       </div>
@@ -81,16 +81,12 @@ const Fixtures = () => {
   }
 
   return (
-    <section id="Fixtures" className="Fixtures">
-      <h2 className="Fixtures__title">Fixtures</h2>
-      {matchDay && (
-        <h4 className="Fixtures__subtitle">{`Matchweek ${matchDay}`}</h4>
-      )}
-      <div className="Fixtures__grid">
+    <section id='Fixtures' className='Fixtures'>
+      <h2 className='Fixtures__title'>Fixtures</h2>
+      {matchDay && <p className='Fixtures__subtitle'>{`Matchweek ${matchDay}`}</p>}
+      <div className='Fixtures__grid'>
         {matches &&
-          matches.map((match) => (
-            <Fixture match={match} key={match.id} viewport={viewportSize} />
-          ))}
+          matches.map((match) => <Fixture match={match} key={match.id} viewport={viewportSize} />)}
       </div>
     </section>
   );

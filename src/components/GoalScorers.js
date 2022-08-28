@@ -20,7 +20,7 @@ const Player = ({ player, index }) => {
       <span className="Player__team">
         <img
           src={`https://crests.football-data.org/${player.team.id}.svg`}
-          alt="Crest logo"
+          alt={`${player.team.name} logo`}
           className="Player__team__logo"
         />
         {player.team.name}
@@ -30,7 +30,7 @@ const Player = ({ player, index }) => {
         {countryCode && (
           <img
             src={`https://flagcdn.com/${countryCode.toLowerCase()}.svg`}
-            alt="nation flag"
+            alt={`${nationality} flag`}
             className="Player__country__logo"
           />
         )}

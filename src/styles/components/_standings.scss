@@ -78,6 +78,7 @@
       .team {
         justify-self: flex-start;
         padding-left: 10px;
+        overflow-wrap: anywhere;
       }
 
       &__item {
